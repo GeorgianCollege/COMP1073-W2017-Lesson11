@@ -12,29 +12,13 @@
         LoadPageContent();
     }
     // Loads the Main Navigation using AJAX
+
+
+
+
     function LoadNavBar() {
-        //var mainNav = document.getElementById("mainNav");
-
-        var mainNav = $("#mainNav")[0];
-
-        var navbarHTML;
-        // STEP 1 - need an XHR object
-        var navXHR = new XMLHttpRequest();
-        // STEP 2 - open a file
-        navXHR.open("GET", "../navbar.html", true);
-        // STEP 3 - send the XMLHttpRequest
-        navXHR.send();
-        // STEP 4 - listen for readystate of 4 and server status of 200 onReadyStateChange
-        navXHR.onreadystatechange = function () {
-            if ((this.readyState === 4) && (this.status === 200)) {
-                // read the data
-                navbarHTML = this.responseText;
-            }
-        };
-        // STEP 5 - wait until the Navbar file has finished loading
-        navXHR.addEventListener("load", function () {
-            mainNav.innerHTML = navbarHTML;
-            switch (document.title) {
+      $("#mainNav").load("../navbar.html", function(data){
+        switch (document.title) {
                 case "Home":
                     var homeLink = document.getElementById("homeLink");
                     homeLink.setAttribute("class", "active");
@@ -48,8 +32,11 @@
                     contactLink.setAttribute("class", "active");
                     break;
             }
-        });
+      });
     }
+
+
+
     // Loads the Content for each page using the Document Title
     function LoadPageContent() {
         switch (document.title) {
