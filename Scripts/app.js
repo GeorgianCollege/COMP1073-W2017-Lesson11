@@ -88,25 +88,10 @@
         var data = {
             games: game
         };
-        // STEP 1 - instantiate an XHR object
-        var XHR = new XMLHttpRequest();
-        // STEP 2 - open the JSON file
-        XHR.open("GET", "../games.json", true);
-        // STEP 3 - send out a call to the XHR object
-        XHR.send();
-        // STEP 4 - listen for readystate to be 4
-        XHR.onreadystatechange = function () {
-            if ((this.readyState === 4) && (this.status === 200)) {
-                // convert data from string to JSON format
-                data = JSON.parse(this.responseText);
-            }
-        };
-        // STEP 5 - wait until data is finished loading before injecting it
-        XHR.addEventListener("load", function () {
-            //let gameListBody = document.getElementById("gameListBody");
-            var gameListBody = $("#gameListBody");
-            // for each game in data.games repeat
-            data.games.forEach(function (game) {
+
+        $.getJSON("../games.json", function(data){
+          var gameListBody = $("#gameListBody");
+           data.games.forEach(function (game) {
                 // inject a "template row" inside the dataRows div tag
                 var newRow = document.createElement("tr");
                 newRow.innerHTML = "\n          <td>" + game.name + "</td>\n          <td class=\"text-center\">" + game.cost + "</td>\n          <td class=\"text-center\">" + game.rating + "</td>\n        ";
@@ -114,6 +99,8 @@
             }, this);
         });
     }
+
+
     // Loads the content for the projects page
     function LoadProjectsPage() {
         // Step 1 - Setup references to the elements you need to hook into
