@@ -1,0 +1,27 @@
+{
+  "name": "comp1073-w2017-lesson11",
+  "version": "1.0.0",
+  "description": "Demo web app for Lesson 11",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GeorgianCollege/COMP1073-W2017-Lesson10.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "jQuery",
+    "TypeScript"
+  ],
+  "author": "Tom Tsiliopoulos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GeorgianCollege/COMP1073-W2017-Lesson10/issues"
+  },
+  "homepage": "https://github.com/GeorgianCollege/COMP1073-W2017-Lesson10#readme",
+  "devDependencies": {
+    "@types/jquery": "^2.0.41"
+  }
+}
